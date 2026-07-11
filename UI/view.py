@@ -28,12 +28,20 @@ class View(ft.UserControl):
         self._title = ft.Text("TdP 2024 - Esame del 04-07-2024 - A", color="blue", size=24)
         self._page.controls.append(self._title)
 
-        # First row with some controls
+
+
         self.ddyear = ft.Dropdown(label="Anno",
-                                  hint_text="Anno da analizzare per gli avvistamenti.")
+                                  hint_text="Anno da analizzare per gli avvistamenti.",
+                                  on_change = self._controller.fillDDShape)
+        self._controller.fillDDYear()
+
+
 
         self.ddshape = ft.Dropdown(label="Shape",
                                    hint_text="Shape da analizzare per gli avvistamenti.")
+
+
+
         self.btn_graph = ft.ElevatedButton(text="Crea Grafo",
                                            tooltip="Crea il grafo del punto 1",
                                            on_click=self._controller.handle_graph)
